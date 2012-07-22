@@ -22,6 +22,10 @@ group :test do
   gem 'factory_girl_rails', '3.5.0'
 end
 
+group :production do
+  gem 'pg'
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
