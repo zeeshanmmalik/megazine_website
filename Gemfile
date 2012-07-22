@@ -9,6 +9,8 @@ gem 'rails', '3.2.6'
 gem 'mysql2', '0.3.11'
 
 gem 'haml', '3.1.6'
+gem 'ckeditor', '3.7.1'
+gem 'paperclip', '3.1.4'
 
 group :development, :test  do
   gem 'haml-rails', '0.3.4'

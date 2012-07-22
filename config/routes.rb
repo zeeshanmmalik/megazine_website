@@ -1,4 +1,6 @@
 Nakedpunch::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
   resources :articles
 
   # The priority is based upon order of creation:

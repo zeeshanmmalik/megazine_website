@@ -16,6 +16,7 @@
     %link(href="images/apple-touch-icon.png" rel="apple-touch-icon-precomposed")
     %link(href="images/favicon.ico" rel="shortcut icon")
 
+    = javascript_include_tag "application"
 
   %body
     .navbar.navbar-fixed-top
@@ -53,4 +54,5 @@
       Javascripts
       \==================================================
     / Placed at the end of the document so the pages load faster
-    = javascript_include_tag "application"
+    - if content_for?(:action_specific_assets)
+      = yield :action_specific_assets    

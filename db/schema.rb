@@ -14,14 +14,33 @@
 ActiveRecord::Schema.define(:version => 20120722191928) do
 
   create_table "articles", :force => true do |t|
-    t.string   "author"
     t.string   "title"
-    t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.text     "body",       :limit => 2147483647
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "issue_id"
     t.string   "status"
+    t.string   "author"
+    t.integer  "issue_id"
   end
+
+  add_index "articles", ["issue_id"], :name => "index_articles_on_issue_id"
+  add_index "articles", ["user_id"], :name => "index_articles_on_user_id"
+
+  create_table "ckeditor_assets", :force => true do |t|
+    t.string   "data_file_name",                  :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
 end
