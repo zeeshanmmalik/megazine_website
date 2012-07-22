@@ -3,7 +3,7 @@ class CreateArticles < ActiveRecord::Migration
     create_table :articles do |t|
       t.string :author
       t.string :title
-      t.text :body, :limit => 4294967295
+      t.text :body, :limit => nil
 
       t.timestamps
     end
