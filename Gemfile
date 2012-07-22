@@ -6,8 +6,13 @@ gem 'rails', '3.2.6'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'sqlite3'
-gem 'mysql2'
+gem 'mysql2', '0.3.11'
 
+gem 'haml', '3.1.6'
+
+group :development, :test  do
+  gem 'haml-rails', '0.3.4'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -19,6 +24,7 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.2.6'
+  gem 'twitter-bootstrap-rails', '2.1.1'
 end
 
 gem 'jquery-rails', '2.0.2'
