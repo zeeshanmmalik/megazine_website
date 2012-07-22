@@ -19,6 +19,7 @@ group :test do
   gem 'cucumber-rails', '1.3.0'
   gem 'webrat', '0.7.3'
   gem 'database_cleaner', '0.8.0'
+  gem 'factory_girl_rails', '3.5.0'
 end
 
 # Gems used only for assets and not required
