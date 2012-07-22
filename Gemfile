@@ -12,6 +12,13 @@ gem 'haml', '3.1.6'
 
 group :development, :test  do
   gem 'haml-rails', '0.3.4'
+  gem 'rspec-rails', '2.11.0'
+end
+
+group :test do
+  gem 'cucumber-rails', '1.3.0'
+  gem 'webrat', '0.7.3'
+  gem 'database_cleaner', '0.8.0'
 end
 
 # Gems used only for assets and not required
