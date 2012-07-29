@@ -14,5 +14,4 @@
 /log/*.log
 /tmp
 
-# Ignore production configuration file
-/config/environments/production.rb
+

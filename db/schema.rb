@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120722191928) do
+ActiveRecord::Schema.define(:version => 20120727230425) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -42,5 +42,18 @@ ActiveRecord::Schema.define(:version => 20120722191928) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
+
+  create_table "images", :force => true do |t|
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.string   "attached_image_file_name"
+    t.string   "attached_image_content_type"
+    t.integer  "attached_image_file_size"
+    t.datetime "attached_image_updated_at"
+  end
+
+  add_index "images", ["imageable_type", "imageable_id"], :name => "image_owner_index"
 
 end

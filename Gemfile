@@ -10,7 +10,9 @@ gem 'mysql2', '0.3.11'
 
 gem 'haml', '3.1.6'
 gem 'ckeditor', '3.7.1'
+gem 'aws-sdk', '1.5.8'
 gem 'paperclip', '3.1.4'
+gem 'nested_form', '0.2.2'
 
 group :development, :test  do
   gem 'haml-rails', '0.3.4'

@@ -25,7 +25,6 @@ class ArticlesController < ApplicationController
   # GET /articles/new.json
   def new
     @article = Article.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @article }

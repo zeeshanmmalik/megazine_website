@@ -1,0 +1,16 @@
+access_keys: &access-keys
+ access_key_id: dummy_key
+ secret_access_key: dummy_secret
+
+development:
+  bucket: nakedpunch_dev
+  <<: *access-keys
+
+test:
+  bucket: nakedpunch_test
+  <<: *access-keys
+
+production:
+  bucket: nakedpunch_prod
+  <<: *access-keys
+

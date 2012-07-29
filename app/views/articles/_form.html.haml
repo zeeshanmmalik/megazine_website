@@ -1,7 +1,10 @@
 - content_for :action_specific_assets do
   = javascript_include_tag "ckeditor/init"
 
-= form_for @article, :html => { :class => 'form-horizontal' } do |f|
+= form_for @article, :html => { :class => 'form-horizontal', :multipart => true } do |f|
+  - @article.errors.full_messages.each do |msg|
+    .alert.no-margin.top{:class => "error"}= msg
+  
   .control-group
     = f.label :author, :class => 'control-label'
     .controls
@@ -14,6 +17,16 @@
     = f.label :body, :class => 'control-label'
     .controls
       = f.cktext_area :body, :class => 'text_area', :toolbar => 'Full', :width => 800, :height => 1000
+
+  .control-group
+    .controls
+      - if !@article.image.nil?
+        = link_to image_tag(@article.image.attached_image.url(:thumb)), @article.image.attached_image.url(:original)
+      - else
+        - @article.build_image
+      = f.fields_for :image do |image_form|
+        = image_form.file_field :attached_image
+
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), articles_path, :class => 'btn'
