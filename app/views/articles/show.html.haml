@@ -11,6 +11,10 @@
   %br
   = @article.title
 %p
+  %strong= model_class.human_attribute_name(:image) + ':'
+  %br
+  = image_tag(@article.image.attached_image.url(:medium))
+%p
   %strong= model_class.human_attribute_name(:body) + ':'
   %br
   = raw @article.body
