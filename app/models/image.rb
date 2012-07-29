@@ -11,6 +11,6 @@ class Image < ActiveRecord::Base
   attr_accessible :attached_image
 
   validates_attachment :attached_image, :presence => true,
-                       :content_type => { :content_type => ['image/jpeg', 'image/jpg', 'image/png'] },
+                       :content_type => { :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] },
                        :size => { :in => 0..5.megabytes }
 end
