@@ -16,4 +16,4 @@
 
 # Ignore production config files
 /config/environments/production.rb
-config/s3.yml
+/config/s3.yml
