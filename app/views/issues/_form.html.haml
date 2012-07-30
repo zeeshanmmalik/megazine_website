@@ -1,0 +1,32 @@
+= form_for @issue, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :title, :class => 'control-label'
+    .controls
+      = f.text_field :title, :class => 'text_field'
+  .control-group
+    = f.label :description, :class => 'control-label'
+    .controls
+      = f.text_field :description, :class => 'text_field'
+  .control-group
+    = f.label :status, :class => 'control-label'
+    .controls
+      = f.text_field :status, :class => 'text_field'
+  .control-group
+    = f.label :price, :class => 'control-label'
+    .controls
+      = f.text_field :price, :class => 'text_field'
+  .control-group
+    = f.label :currency_code, :class => 'control-label'
+    .controls
+      = f.text_field :currency_code, :class => 'text_field'
+  .control-group
+    .controls
+      - if !@issue.image.nil?
+        = link_to image_tag(@issue.image.attached_image.url(:thumb)), @issue.image.attached_image.url(:original)
+      - else
+        - @issue.build_image
+      = f.fields_for :image do |image_form|
+        = image_form.file_field :attached_image
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), issues_path, :class => 'btn'

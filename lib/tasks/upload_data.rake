@@ -29,6 +29,7 @@ begin
         next if item == '.' or item == '..'
         slide = Slide.find_by_id(item)
         if slide
+          puts slide.title
           if slide.image.nil?
             Dir.foreach("#{slides_dir}/#{item}") do |image|
               next if image == '.' or image == '..'
@@ -36,6 +37,29 @@ begin
                 attached_image = Image.new
                 attached_image.imageable = slide
                 attached_image.attached_image = File.open("#{slides_dir}/#{item}/#{image}")
+                attached_image.save!
+                break
+              end
+            end
+          end
+        end  
+      end
+    end
+
+    task :upload_issue_images => :environment do
+      issues_dir = '/home/zeeshan/projects/naked_punch/nakedpunch_21_Jul_2012/nakedpunch_code_data/public/uploads/issues/images'
+      Dir.foreach(issues_dir) do |item|
+        next if item == '.' or item == '..'
+        issue = Issue.find_by_id(item)
+        if issue
+          puts issue.title
+          if issue.image.nil?
+            Dir.foreach("#{issues_dir}/#{item}") do |image|
+              next if image == '.' or image == '..'
+              unless File::directory?("#{issues_dir}/#{item}/#{image}")
+                attached_image = Image.new
+                attached_image.imageable = issue
+                attached_image.attached_image = File.open("#{issues_dir}/#{item}/#{image}")
                 attached_image.save!
                 break
               end

@@ -1,4 +1,6 @@
 Nakedpunch::Application.routes.draw do
+  resources :issues
+
   resources :slides
 
   mount Ckeditor::Engine => '/ckeditor'

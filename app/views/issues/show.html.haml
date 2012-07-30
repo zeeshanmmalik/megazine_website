@@ -1,0 +1,33 @@
+- model_class = Issue
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human
+
+%p
+  %strong= model_class.human_attribute_name(:title) + ':'
+  %br
+  = @issue.title
+%p
+  %strong= model_class.human_attribute_name(:description) + ':'
+  %br
+  = @issue.description
+%p
+  %strong= model_class.human_attribute_name(:status) + ':'
+  %br
+  = @issue.status
+%p
+  %strong= model_class.human_attribute_name(:price) + ':'
+  %br
+  = @issue.price
+%p
+  %strong= model_class.human_attribute_name(:currency_code) + ':'
+  %br
+  = @issue.currency_code
+%p
+  %strong= model_class.human_attribute_name(:image) + ':'
+  %br
+  = image_tag(@issue.image.attached_image.url(:medium))
+  
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), issues_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_issue_path(@issue), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), issue_path(@issue), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'

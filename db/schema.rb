@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120730053223) do
+ActiveRecord::Schema.define(:version => 20120730131523) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -55,6 +55,16 @@ ActiveRecord::Schema.define(:version => 20120730053223) do
   end
 
   add_index "images", ["imageable_type", "imageable_id"], :name => "image_owner_index"
+
+  create_table "issues", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "status",        :default => "off",  :null => false
+    t.string   "price",         :default => "5.00", :null => false
+    t.string   "currency_code", :default => "GBP",  :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+  end
 
   create_table "slides", :force => true do |t|
     t.string   "title"
