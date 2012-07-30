@@ -7,7 +7,7 @@
       %th= model_class.human_attribute_name(:id)
       %th= model_class.human_attribute_name(:title)
       %th= model_class.human_attribute_name(:page_url)
-      %th= model_class.human_attribute_name(:status)
+      %th= model_class.human_attribute_name(:published)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
@@ -16,7 +16,7 @@
         %td= link_to slide.id, slide_path(slide)
         %td= slide.title
         %td= slide.page_url
-        %td= slide.status
+        %td= slide.published
         %td=l slide.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_slide_path(slide), :class => 'btn btn-mini'

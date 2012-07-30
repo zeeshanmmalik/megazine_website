@@ -8,9 +8,9 @@
     .controls
       = f.text_field :description, :class => 'text_field'
   .control-group
-    = f.label :status, :class => 'control-label'
+    = f.label :published , :class => 'control-label'
     .controls
-      = f.text_field :status, :class => 'text_field'
+      = f.check_box :published, :class => 'checkbox'
   .control-group
     = f.label :price, :class => 'control-label'
     .controls

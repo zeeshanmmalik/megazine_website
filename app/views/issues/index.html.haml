@@ -7,7 +7,7 @@
       %th= model_class.human_attribute_name(:id)
       %th= model_class.human_attribute_name(:title)
       %th= model_class.human_attribute_name(:description)
-      %th= model_class.human_attribute_name(:status)
+      %th= model_class.human_attribute_name(:published)
       %th= model_class.human_attribute_name(:price)
       %th= model_class.human_attribute_name(:currency_code)
       %th= model_class.human_attribute_name(:created_at)
@@ -18,7 +18,7 @@
         %td= link_to issue.id, issue_path(issue)
         %td= issue.title
         %td= issue.description
-        %td= issue.status
+        %td= issue.published
         %td= issue.price
         %td= issue.currency_code
         %td=l issue.created_at
