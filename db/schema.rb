@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(:version => 20120730131523) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.string   "status"
     t.string   "author"
     t.integer  "issue_id"
+    t.boolean  "published",                        :default => false, :null => false
   end
 
   add_index "articles", ["issue_id"], :name => "index_articles_on_issue_id"
@@ -59,19 +59,19 @@ ActiveRecord::Schema.define(:version => 20120730131523) do
   create_table "issues", :force => true do |t|
     t.string   "title"
     t.string   "description"
-    t.string   "status",        :default => "off",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "price",         :default => "5.00", :null => false
     t.string   "currency_code", :default => "GBP",  :null => false
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.boolean  "published",     :default => false,  :null => false
   end
 
   create_table "slides", :force => true do |t|
     t.string   "title"
     t.string   "page_url"
-    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "published",  :default => false, :null => false
   end
 
 end

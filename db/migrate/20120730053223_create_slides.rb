@@ -3,7 +3,7 @@ class CreateSlides < ActiveRecord::Migration
     create_table :slides do |t|
       t.string :title
       t.string :page_url
-      t.string :status, :default => 'off'
+      t.boolean :published, :default => false, :null => false
 
       t.timestamps
     end

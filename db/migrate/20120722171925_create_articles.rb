@@ -4,6 +4,8 @@ class CreateArticles < ActiveRecord::Migration
       t.string :author
       t.string :title
       t.text :body, :limit => nil
+      t.int :issue_id
+      t.boolean :published, :null => false, :default => false
 
       t.timestamps
     end
