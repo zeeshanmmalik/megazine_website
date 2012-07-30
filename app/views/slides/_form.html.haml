@@ -1,0 +1,24 @@
+= form_for @slide, :html => { :class => 'form-horizontal', :multipart => true } do |f|
+  .control-group
+    = f.label :title, :class => 'control-label'
+    .controls
+      = f.text_field :title, :class => 'text_field'
+  .control-group
+    = f.label :page_url, :class => 'control-label'
+    .controls
+      = f.text_field :page_url, :class => 'text_field'
+  .control-group
+    = f.label :status, :class => 'control-label'
+    .controls
+      = f.text_field :status, :class => 'text_field'
+  .control-group
+    .controls
+      - if !@slide.image.nil?
+        = link_to image_tag(@slide.image.attached_image.url(:thumb)), @slide.image.attached_image.url(:original)
+      - else
+        - @slide.build_image
+      = f.fields_for :image do |image_form|
+        = image_form.file_field :attached_image
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), slides_path, :class => 'btn'
